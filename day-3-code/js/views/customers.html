@@ -1,0 +1,47 @@
+<!--
+ Copyright (c) 2014, 2022, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+<div class="oj-hybrid-padding">
+  <h1>Customers Content Area</h1>
+  <div>
+    <div id="chart-container">
+
+      <oj-radioset
+              id="radiosetBasicDemoId"
+              label-hint="Chart Types"
+              label-edge="inside"
+              value="{{currentColor}}">
+              <!-- This is an example of how to use oj-bind-for-each, along with oj-bind-text to 
+                    iterate over an array of objects-->
+              <oj-bind-for-each data="[[colorOptions]]">
+                <template>
+                  <oj-option value="[[$current.data.value]]">
+                    <oj-bind-text value="[[$current.data.color]]"></oj-bind-text>
+                  </oj-option>
+                </template>
+              </oj-bind-for-each>
+      </oj-radioset>
+
+      <div style="height: 20px;"></div>
+
+      <oj-chart
+        id="barChart"
+        type="[[currentColor]]"
+        orientation="[[orientationValue]]"
+        stack="[[stackValue]]"
+        data="[[dataProvider]]"
+        animation-on-display="auto"
+        animation-on-data-change="auto"
+        hover-behavior="dim">
+        <template slot="itemTemplate" data-oj-as="item">
+          <oj-chart-item
+            value="[[item.data.value]]"
+            group-id="[[ [item.data.group] ]]"
+            series-id="[[item.data.series]]"></oj-chart-item>
+        </template>
+      </oj-chart>
+    </div>
+  </div>
+</div>

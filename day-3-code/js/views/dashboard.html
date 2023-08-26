@@ -1,0 +1,30 @@
+<!--
+ Copyright (c) 2014, 2022, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+
+<link rel="stylesheet" href="../../css/dashboard.css">
+<div class="oj-hybrid-padding">
+  <h1>Dashboard Content Area</h1>
+  <div>
+      <h3 class="myclass">This is my first experiment!!</h3>
+  </div>
+  <div>
+    <h6>Name : <input data-bind="textInput:name"> </h6>
+    <h6>Age  : <input data-bind="textInput:age"> </h6>
+    <hr>
+    <h3>Your name is <span data-bind="text:name"> </span> and age is <span data-bind="text:age"> </span><h3>
+  </div>
+  <div class="chartsize" style="float:left">
+    <h3>Please follow the statistics</h3>
+    <oj-chart type = "bar" series ="[[datasource]]">
+    </oj-chart>
+  </div>
+  <div class="chartsize" style="float:left">
+    <h3>Your time distribution</h3>
+    <oj-chart type = "pie" series ="[[datasource2]]">
+    </oj-chart>
+  </div>
+  
+</div>
